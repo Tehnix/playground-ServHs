@@ -1,0 +1,23 @@
+{
+  "name": "serv-hs",
+  "version": "1.0.0",
+  "description": "Fun with serverless-haskell",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tehnix/ServHs.git"
+  },
+  "keywords": [
+    "haskell",
+    "serverless"
+  ],
+  "author": "Tehnix",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Tehnix/ServHs/issues"
+  },
+  "homepage": "https://github.com/Tehnix/ServHs#readme",
+  "dependencies": {
+    "serverless": "^1.28.0",
+    "serverless-haskell": "^0.7.1"
+  }
+}
