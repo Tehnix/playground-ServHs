@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/Tehnix/ServHs.git"
   },
+  "scripts": {
+    "local:entry": "sls invoke local --function entry"
+  },
   "keywords": [
     "haskell",
     "serverless"
