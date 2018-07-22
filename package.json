@@ -9,7 +9,7 @@
   "scripts": {
     "local:entry": "sls invoke local --function entry --data '{}'",
     "local:entry:int": "sls invoke local --function entry --data '[4, 5, 6]'",
-    "offline": "sls offline start --exec"
+    "offline": "sls offline start"
   },
   "keywords": [
     "haskell",

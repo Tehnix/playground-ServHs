@@ -25,3 +25,8 @@ node_modules
 
 # Use package.yaml
 *.cabal
+
+# Serverless offline generated files
+entry
+gateway-entry
+ServHs.js
