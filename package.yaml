@@ -6,6 +6,7 @@ author:              "Christian Laustsen"
 maintainer:          "ckl@codetalk.io"
 copyright:           "2018 Christian Laustsen"
 
+description:         Please see the README on GitHub at <https://github.com/Tehnix/ServHs#readme>
 extra-source-files:
 - README.md
 - ChangeLog.md
@@ -14,27 +15,80 @@ extra-source-files:
 # synopsis:            Short description of your package
 # category:            Web
 
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/Tehnix/ServHs#readme>
-
 dependencies:
 - base >= 4.7 && < 5
-- aeson
 - serverless-haskell
+
+default-extensions:
+  - ApplicativeDo
+  - BangPatterns
+  - ConstraintKinds
+  - DataKinds
+  - DefaultSignatures
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - EmptyCase
+  - ExistentialQuantification
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - KindSignatures
+  - LambdaCase
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - NamedFieldPuns
+  - OverloadedStrings
+  - PatternSynonyms
+  - RankNTypes
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeFamilyDependencies
+  - TypeOperators
 
 library:
   source-dirs: src
+  ghc-options:
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
+  dependencies:
+    - aeson
+    - lens
+    - unordered-containers
+    - text
 
 executables:
   entry:
-    main:                Main.hs
+    main:                Entry.hs
     source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    other-modules: []
+    ghc-options: &ghc-exe-opts
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -Wall
+      - -Wcompat
+      - -Wincomplete-record-updates
+      - -Wincomplete-uni-patterns
+      - -Wredundant-constraints
+    dependencies:
+    - ServHs
+  gateway-entry:
+    main:                GatewayEntry.hs
+    source-dirs:         app
+    other-modules: []
+    ghc-options: *ghc-exe-opts
     dependencies:
     - ServHs
 
@@ -42,9 +96,6 @@ tests:
   ServHs-test:
     main:                Spec.hs
     source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: *ghc-exe-opts
     dependencies:
     - ServHs

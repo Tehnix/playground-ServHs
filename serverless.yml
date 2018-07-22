@@ -3,10 +3,18 @@ service: serv-hs
 provider:
   name: aws
   runtime: nodejs8.10
+  region: eu-central-1
 
 functions:
   entry:
     handler: ServHs.entry
+  gateway-entry:
+    handler: ServHs.gateway-entry
+    events:
+      - http:
+          path: hello/{name}
+          method: get
 
 plugins:
   - serverless-haskell
+  - serverless-offline

@@ -7,7 +7,9 @@
     "url": "git+https://github.com/Tehnix/ServHs.git"
   },
   "scripts": {
-    "local:entry": "sls invoke local --function entry"
+    "local:entry": "sls invoke local --function entry --data '{}'",
+    "local:entry:int": "sls invoke local --function entry --data '[4, 5, 6]'",
+    "offline": "sls offline start --exec"
   },
   "keywords": [
     "haskell",
@@ -19,8 +21,10 @@
     "url": "https://github.com/Tehnix/ServHs/issues"
   },
   "homepage": "https://github.com/Tehnix/ServHs#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "serverless": "^1.28.0",
-    "serverless-haskell": "^0.7.1"
+    "serverless-haskell": "^0.7.1",
+    "serverless-offline": "^3.25.6"
   }
 }
